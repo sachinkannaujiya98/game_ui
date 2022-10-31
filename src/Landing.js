@@ -4,7 +4,7 @@ import Character from "./images/char.png";
 const Landing = () => {
   return (
     <div className="relative">
-      <img src={BgImage} alt="bg-image " className="md:w-full  " />
+      <img src={BgImage} alt="bg" className="md:w-full  " />
       <img
         src={Character}
         alt="avatar"
