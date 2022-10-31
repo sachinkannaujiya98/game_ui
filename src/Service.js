@@ -26,7 +26,7 @@ const Service = () => {
       </div>
 
       <div className="md:flex md:justify-center my-8 md-w-full ">
-        <video autoPlay loop>
+        <video controls loop>
           <source
             src="https://dd2cgqlmnwvp5.cloudfront.net/homepage/videos/cross-platform.mp4"
             type="video/mp4"
