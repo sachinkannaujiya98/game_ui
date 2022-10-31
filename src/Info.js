@@ -8,14 +8,14 @@ const Info = () => {
       <p className='md:text-xl md:py-4 text-lg font-light break-all py-2'>Eiusmod proident aliqua commodo consequat consectetur enim dolore magna sit ipsum proident laboris. Laboris exercitation irure duis aute voluptate adipisicing exercitation pariatur do labore sit fugiat. Nisi sint aliqua cupidatat veniam.</p>     
     </div>
     <div className='grid grid-cols-2 gap-2 mx-2 md:grid md:grid-cols-4 md:gap-12 md:mx-96 md:my-8'>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
-        <div><img src={BgImage} alt="bg-image " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
+        <div><img src={BgImage} alt="bg " className="rounded-md " /></div>
     </div>
     </>
   )

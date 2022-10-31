@@ -7,7 +7,7 @@ const Landing = () => {
       <img src={BgImage} alt="bg-image " className="md:w-full  " />
       <img
         src={Character}
-        alt=""
+        alt="avatar"
         className="absolute inset-x-0  bottom-0  md:left-[40%] md:w-[28rem] w-24 left-1/3 "
       />
       <p  className="absolute inset-x-0 md:bottom-96  md:left-[35%] text-gray-200 md:text-3xl bottom-20 left-2">The Largest Community of Games Development</p>
