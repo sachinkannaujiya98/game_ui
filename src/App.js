@@ -1,19 +1,21 @@
-
-import Landing from './Landing';
-import About from './About';
-import Info from './Info';
-import Service from './Service';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./Footer";
+import SignIn from "./SignIn";
+import Signup from "./Signup";
+import Navbar from "./Navbar";
+import Landing from "./Landing";
 function App() {
   return (
     <>
-      <Navbar/>
-      <Landing />
-      <About />
-      <Info />
-      <Service/>
-      <Footer/>
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Landing />}></Route>
+          <Route exact path="/sign-in" element={<SignIn />}></Route>
+          <Route exact path="/sign-up" element={<Signup />}></Route>
+        </Routes>
+      </BrowserRouter>
+      <Footer />
     </>
   );
 }
