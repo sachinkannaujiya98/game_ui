@@ -10,9 +10,9 @@ function App() {
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Landing />}></Route>
-          <Route exact path="/sign-in" element={<SignIn />}></Route>
-          <Route exact path="/sign-up" element={<Signup />}></Route>
+          <Route path="/" element={<Landing />}></Route>
+          <Route path="/sign-in" element={<SignIn />}></Route>
+          <Route path="/sign-up" element={<Signup />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

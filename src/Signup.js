@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
-  const [data, setData] = useState({});
+  const initialState = {
+    username: "",
+    name: "",
+    password: "",
+  };
+  const [data, setData] = useState(initialState);
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -13,10 +19,13 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("https://localhost:5000/signup", data)
-      .then((res) => console.log(res))
+      .post("http://192.168.29.221:5000/signup", data)
+      .then((res) => localStorage.setItem("userToken", res.data.data.token))
       .catch((err) => console.log(err));
+    // localStorage.setItem();
+    setData(initialState);
   };
+
   return (
     <div className="h-screen flex items-center justify-center w-full ">
       <div className=" bg-gray-200 p-4">
@@ -26,7 +35,7 @@ const Signup = () => {
             type="text"
             name="name"
             value={data.name}
-            placeholder="Username"
+            placeholder="Name"
             onChange={handleChange}
             className="my-4 border-none outline-none  placeholder-black bg-gray-400 p-2  text-xl"
           />
@@ -34,7 +43,7 @@ const Signup = () => {
             type="text"
             name="username"
             value={data.username}
-            placeholder="Name"
+            placeholder="Username Name"
             onChange={handleChange}
             className="my-4 border-none outline-none placeholder-black bg-gray-400 p-2  text-xl "
           />
@@ -54,9 +63,9 @@ const Signup = () => {
           </button>
         </form>
         <div className=" flex flex-col items-center">
-          <a href="/" className="my-2">
+          <Link to="/sign-in" className="my-2">
             Sign In
-          </a>
+          </Link>
         </div>
       </div>
     </div>

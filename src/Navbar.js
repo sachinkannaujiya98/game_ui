@@ -1,4 +1,5 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import Logo from "./images/logo.png";
 const Navbar = () => {
   return (
@@ -13,12 +14,18 @@ const Navbar = () => {
         <li>Support</li>
       </ul>
       <div className="flex gap-2 py-2">
-        <button className=" border-[1px] border-blue-500 px-5 py-1 rounded-md text-blue-500 ">
+        <a
+          href="/sign-in"
+          className=" border-[1px] border-blue-500 px-5 py-1 rounded-md text-blue-500 "
+        >
           Log in
-        </button>
-        <button className=" border-[1px] border-blue-600 px-5 py-1 rounded-md text-white bg-blue-500 shadow-lg shadow-blue-500/50">
+        </a>
+        <a
+          href="/sign-up"
+          className=" border-[1px] border-blue-600 px-5 py-1 rounded-md text-white bg-blue-500 shadow-lg shadow-blue-500/50"
+        >
           Register
-        </button>
+        </a>
       </div>
     </div>
   );
