@@ -7,6 +7,7 @@ const Signup = () => {
     username: "",
     name: "",
     password: "",
+    email: "",
   };
   const [data, setData] = useState(initialState);
   const handleChange = (e) => {
@@ -20,7 +21,7 @@ const Signup = () => {
     event.preventDefault();
     axios
       .post("http://192.168.29.221:5000/signup", data)
-      .then((res) => localStorage.setItem("userToken", res.data.data.token))
+      .then((res) => res)
       .catch((err) => console.log(err));
     // localStorage.setItem();
     setData(initialState);
@@ -43,18 +44,27 @@ const Signup = () => {
             type="text"
             name="username"
             value={data.username}
-            placeholder="Username Name"
+            placeholder="Username"
             onChange={handleChange}
             className="my-4 border-none outline-none placeholder-black bg-gray-400 p-2  text-xl "
           />
           <input
-            type="text"
+            type="email"
+            name="email"
+            value={data.email}
+            placeholder="Email"
+            onChange={handleChange}
+            className="my-4 border-none outline-none placeholder-black bg-gray-400 p-2  text-xl"
+          />
+          <input
+            type="password"
             name="password"
             value={data.password}
             placeholder="Password"
             onChange={handleChange}
             className="my-4 border-none outline-none placeholder-black bg-gray-400 p-2  text-xl"
           />
+
           <button
             type="submit"
             className="bg-blue-400 px-6 py-1 rounded-sm text-white font-semibold"

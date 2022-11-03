@@ -14,6 +14,13 @@ const SignIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    axios
+      .post("http://192.168.29.221:5000/login", login)
+      .then((res) => localStorage.setItem("userToken", res.data.data.token))
+      // .then((res) => console.log("userToken", res.data.data.token))
+      .catch((err) => console.log(err));
+
     let token = localStorage.getItem("userToken");
     axios
       .get("http://192.168.29.221:5000/accessRoute", {
@@ -24,16 +31,16 @@ const SignIn = () => {
       .then((res) => setLoginData(res))
       .catch((err) => console.log(err));
     console.log("logindata", loginData.data.data.password);
+    // ================ destructuring Data==============
+    // const { username, password } = loginData.data.data;
+    // console.log("password", password);
+    // console.log("username", username);
 
-    const { username, password } = loginData.data.data;
-    console.log("password", password);
-    console.log("username", username);
-
-    if (password === login.password && username === login.username) {
-      console.log("login successfully");
-    } else {
-      console.log("Something Went Wrong !");
-    }
+    // if (password === login.password && username === login.username) {
+    //   console.log("login successfully");
+    // } else {
+    //   console.log("Something Went Wrong !");
+    // }
   };
   return (
     <div className="h-screen flex items-center justify-center w-full ">
