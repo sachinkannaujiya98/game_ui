@@ -4,23 +4,21 @@ import axios from "axios";
 
 const SignIn = () => {
   const [login, setLogin] = useState({});
+  const [message, setMessage] = useState();
   const [loginData, setLoginData] = useState({});
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setLogin((values) => ({ ...values, [name]: value }));
-    console.log(login);
+    // console.log(login);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     axios
       .post("http://192.168.29.221:5000/login", login)
       .then((res) => localStorage.setItem("userToken", res.data.data.token))
-      // .then((res) => console.log("userToken", res.data.data.token))
       .catch((err) => console.log(err));
-
     let token = localStorage.getItem("userToken");
     axios
       .get("http://192.168.29.221:5000/accessRoute", {
@@ -30,28 +28,25 @@ const SignIn = () => {
       })
       .then((res) => setLoginData(res))
       .catch((err) => console.log(err));
-    console.log("logindata", loginData.data.data.password);
-    // ================ destructuring Data==============
-    // const { username, password } = loginData.data.data;
-    // console.log("password", password);
-    // console.log("username", username);
-
-    // if (password === login.password && username === login.username) {
-    //   console.log("login successfully");
-    // } else {
-    //   console.log("Something Went Wrong !");
-    // }
+    const { username, password } = loginData.data.data;
+    if (password === login.password && username === login.username) {
+      setMessage("Login successfully");
+    } else {
+      setMessage("Invalid credential !");
+    }
   };
   return (
     <div className="h-screen flex items-center justify-center w-full ">
       <div className=" bg-gray-200 p-4">
         <h1 className="py-4  text-center text-xl">Meta Login </h1>
+        <p className="text-2xl text-red-400 text-center">{message}</p>
         <form onSubmit={handleSubmit} className="text-center flex flex-col">
           <input
             type="text"
             name="username"
+            required
             value={login.username}
-            placeholder="Username Name"
+            placeholder="Username"
             onChange={handleChange}
             className="my-4 border-none outline-none  placeholder-black bg-gray-400 p-2  text-xl"
           />
@@ -59,6 +54,7 @@ const SignIn = () => {
           <input
             type="text"
             name="password"
+            required
             value={login.password}
             placeholder="Password"
             onChange={handleChange}
@@ -73,9 +69,8 @@ const SignIn = () => {
             </button>
           </div>
         </form>
-
         <div className="text-right font-semibold text-sm mt-2 underline">
-          <Link to="/">Forgot Password</Link>
+          <Link to="/forget">Forgot Password</Link>
         </div>
         <div className="text-center">
           <Link to="/sign-up">Sign Up</Link>

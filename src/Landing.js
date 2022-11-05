@@ -4,9 +4,11 @@ import Character from "./images/char.png";
 import About from "./About";
 import Info from "./Info";
 import Service from "./Service";
+import Navbar from "./Navbar";
 const Landing = () => {
   return (
     <>
+      <Navbar />
       <div className="relative">
         <img src={BgImage} alt="bg" className="md:w-full  " />
         <img
