@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 const SignIn = () => {
   const [login, setLogin] = useState({});
   const [message, setMessage] = useState();
   const [loginData, setLoginData] = useState({});
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setLogin((values) => ({ ...values, [name]: value }));
-    // console.log(login);
   };
 
   const handleSubmit = (event) => {
@@ -31,6 +30,7 @@ const SignIn = () => {
     const { username, password } = loginData.data.data;
     if (password === login.password && username === login.username) {
       setMessage("Login successfully");
+      navigate("/user-profile");
     } else {
       setMessage("Invalid credential !");
     }

@@ -11,6 +11,13 @@ const Context = () => {
   };
   const [data, setData] = useState(initialState);
   const [userOtp, setUserOtp] = useState();
+  const [hide, setHide] = useState(true);
+  const [hideSignup, setHideSignup] = useState(true);
+  const [error, setError] = useState();
+  const [errorName, setNameError] = useState();
+  const [errorUsername, setUsernameError] = useState();
+  const [errorEmail, setEmailError] = useState();
+  const [errorPassword, setPasswordError] = useState();
   //   const [finalData, setFinalData] = useState([]);
 
   return (
@@ -22,6 +29,20 @@ const Context = () => {
           initialState,
           userOtp,
           setUserOtp,
+          hide,
+          setHide,
+          hideSignup,
+          setHideSignup,
+          error,
+          setError,
+          errorName,
+          setNameError,
+          errorUsername,
+          setUsernameError,
+          errorEmail,
+          setEmailError,
+          errorPassword,
+          setPasswordError,
         }}
       >
         <App />
